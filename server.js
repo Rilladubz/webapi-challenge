@@ -12,8 +12,8 @@ server.get("/", (req, res) => {
 
 // Middleware...
 server.use(logger);
-server.use("api/projects", projectsRouter);
-server.use("api/actions", actionsRouter);
+server.use("/api/projects", projectsRouter);
+server.use("/api/actions", actionsRouter);
 
 function logger(req, res, next) {
   console.log(`${req.method} to ${req.originalUrl} at ${new Date()}`);
