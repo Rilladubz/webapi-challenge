@@ -40,13 +40,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+- Middleware - function code in between the process of a route firing which executes code.
+
+- Routing - Decides which request function fires.
+
 - [ ] Describe Middleware?
+
+Middleware are functions that execute code prior to request handler function firing. It executes code before a request handler function fires like validation functions, loggers, etc prior to request handler local scope code execution.
 
 - [ ] Describe a Resource?
 
+Resources are data stored in databases. Everything is a resource. When dealing which the back end we manage resources.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+status codes.
+
 - [ ] How can we partition our application into sub-applications?
+
+By allowing each piece of code to execute one functionality. Having middleware allows request handler functions to handle and do one particular function rather than an array of things.
 
 ## Minimum Viable Product
 
