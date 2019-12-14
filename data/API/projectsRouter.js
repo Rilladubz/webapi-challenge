@@ -3,8 +3,6 @@ const projectModel = require("../helpers/projectModel");
 
 const router = express.Router();
 
-// router.use(express.json());
-
 // Request Handler Functions...
 
 // CREATE...
@@ -72,13 +70,30 @@ router.delete("/:id/delete", (req, res) => {
     .then(item => {
       item
         ? res.status(200).json({ item })
-        : res
-            .status(500)
-            .json({
-              errorMessage: `A Project with an id of ${id} does not exist`
-            });
+        : res.status(500).json({
+            errorMessage: `A Project with an id of ${id} does not exist`
+          });
     })
     .catch();
+});
+
+// GETPROJECTACTIONS
+router.get("/actions/:id", (req, res) => {
+  projectModel
+    .getProjectActions(req.params.id)
+    .then(actions => {
+      actions.length > 0
+        ? res.status(200).json({ actions })
+        : res.status(404).json({
+            errorMessage: "Sorry, the actions your requested were not found."
+          });
+    })
+    .catch(err => {
+      res.status(500).json({
+        errorMessage: "Sorry request failed please try again later",
+        err
+      });
+    });
 });
 
 // Middleware...
